@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Evil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function loadPage(page) {
+            fetch(page)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not OK');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading page:', error);
+                    document.getElementById('content').innerHTML = '<p>Error loading page. Please try again.</p>';
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <input type="checkbox" name="" id="chk1">
+        <div class="logo"><h1>Resident Evil</h1></div>
+        <div class="search-box">
+            <form>
+                <input type="text" name="search" id="srch" placeholder="Search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <ul>
+            <li><a href="#" onclick="loadPage('pages/home.html')">Home</a></li>
+            <li><a href="#" onclick="loadPage('pages/gameplay.html')">Gameplay</a></li>
+            <li><a href="#" onclick="loadPage('pages/characters.html')">Characters</a></li>
+            <li><a href="#" onclick="loadPage('pages/about.html')">About Game</a></li>
+            <li><a href="#" onclick="loadPage('pages/news.html')">News</a></li>
+            <li>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </li>
+        </ul>
+        <div class="menu">
+            <label for="chk1">
+                <i class="fa fa-bars"></i>
+            </label>
+        </div>
+    </header>
+
+    <div id="content">
+        <h2>Welcome to Resident Evil</h2>
+        <p>Select a menu item to explore the site.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Resident Evil. All rights reserved. | Designed by HhskSonu</p>
+    </footer>
+</body>
+</html>
